@@ -1,0 +1,9 @@
+Tenere premuto il tasto "giu'" finche' non si entra nel menu'
+Premere "enter setting"
+Scorrere fino alla voce "PCC Select"
+Entrare nel menu' inserendo la password 0001. Per cambiare il numero, premere "giu'". Tenendo premuto "giu'" ci si sposta a sinistra
+Selezionare la voce "PCC Meter". Tenere premuto "giu'" per confermare
+Scorrere fino alla voce "Set AntiReflux P"
+Entrare nel menu' inserendo la password 0001 come fatto precedentemente
+Selezionare la voce "Reflux Enable". Tenere premuto "giu'" per confermare
+Impostare la potenza a 0.0kW per la zero-immissione

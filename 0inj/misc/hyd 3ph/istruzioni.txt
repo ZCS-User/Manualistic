@@ -1,0 +1,8 @@
+Tenere premuto il primo tasto a sinistra finche' non si entra nel menu'
+Premere "Impostazioni avanzate"
+Entrare nel menu' inserendo la password 0715 e poi premere l'ultimo tasto a destra
+Selezionare la voce "Anti Reflusso".
+Selezionare la voce "Controllo anti-riflesso".
+Impostare la voce "Zero immissione" o "Limit. Pot. Trifase" e premere l'ultimo tasto a destra. La prima impostazione regola rispetto alla minima produzione su una fase, la seconda regola singolarmente le fasi bilanciando anche eventuali carichi sbilanciati.
+Selezionare la voce "Potenza immissione".
+Impostare 0000.0lkW e premere l'ultimo tasto a destra

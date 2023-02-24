@@ -1,0 +1,2 @@
+Selezionare la tab "configurazione", selezionare la timezone "Europe/Amsterdam", attivare la modalità "zero Injection
+Selezionare la tab "Network", inserire/verificare le informazioni relative alla connettività del ComBox

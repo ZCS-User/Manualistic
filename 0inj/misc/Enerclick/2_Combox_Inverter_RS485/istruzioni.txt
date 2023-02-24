@@ -1,0 +1,9 @@
+Raggiungere il WebServer di configurazione inserendo l'indirizzo IP del Combox in un browser. Inserire User: admin, password: password. cliccare su "login" per entrare
+Cliccare su "add device" per aggiungere un nuovo dispositivo
+Selezionare "Inverter" come tipo di device, Inserire il nome del dispositivo, Abilitare il controllo della potenza ed inserire la potenza nominale dell'Inverter. Premere poi "Next" per proseguire
+Selezionare "modbusrtu" e premere "next" per proseguire
+Inserire l'indirizzo RS485 dell'Inverter. Tale Indirizzo deve coincidere con quello visibile a display e selezionabile direttamente sull'Inverter (ATTENZIONE!: non devono esserci più inverter sullo stesso indirizzo)
+Premere "+" per aaggiungere un nuovo BUS
+Inserire il nome "COM2", tipo di connessione "Serie" e la porta "RS485 - Port 2". Premere "accetta" per proseguire
+Selezionare la marca del dispositivo "Azzurro" ed il modello "3PH V3 or HYbrid" e premere "Next"
+Premere il pulsante "Crea" per confermare le opzioni inserite. Ripetere la procedure per ogni Inverter inserito nella Daisy Chain RS485 (selezionare sempre lo stesso bus: COM2 appena creato, specificando correttamente l'indirizzo di ogni Inverter). Premere il pulsante "apply changes" per confermare l'inserimento

@@ -1,0 +1,9 @@
+Raggiungere il WebServer di configurazione inserendo l'indirizzo IP del Combox in un browser. Inserire User: admin, password: password. cliccare su "login" per entrare
+Cliccare su "add device" per aggiungere un nuovo dispositivo
+Inserire il nome dell'Inverter, abilitare il controllo di potenza ed inserire la potenza nominale dell'Inverter, premere "Next" per proseguire
+Selezionare il protocollo di comunicazione "modbustcp" e premere "Next" per proseguire
+Inserire indirizzo "01" e premere "Next" per proseguire
+Premere "+" per creare un nuovo bus
+Inserire il nome dell'Inverter (per univocità, consigliamo di inserire anche il SN dell'Inverter), tipo di connessione "TCP", Inserire l'indirizzo IP statico precedentemente assengnato all'Inverter, porta "8899". Premere "accetta" per proseguire
+Selezionare "azzurro" come marca e "3PH V3 or HYBRID" come modello, premere "Next" per proseguire
+Premere "Crea" per confermare i dati inseriti. Premere su "apply changes" per conferma. Inserire gli altri inverter seguendo la stessa procedura (ATTENZIONE: creare un bus per ogni Inverter presente sull'impianto, inserendo in ogni bus l'IP statico precedentemente impostato per ogni inverter)
