@@ -1,0 +1,9 @@
+Raggiungere il WebServer di configurazione inserendo l'indirizzo IP del Combox in un browser. Inserire User: admin, password: password. cliccare su "login" per entrare
+Cliccare su "add device" per aggiungere un nuovo dispositivo
+Selezionare "analizadores_red" ed inserire il nome del dispositivo "Meter Scambio" e premere "Next"
+Selezionare il protocollo "modbusrtu" e premere "Next"
+Inserire l'indirizzo del meter (default "01") e premere "Next"
+Premere sul tasto "+" per aggiungere un nuovo bus
+Inserire Nome: COM1, Tipo di Connessione: Serie, Porta: RS485 - Port 1. Lasciare le altre opzioni a valore di default e premere "Accetta"
+Selezionare marca del dispositivo: "Chint" e come modello : CHINT_DTSU666, premere "Next"
+Premere "Crea" per confermare i dati inseriti e crare il dispositivo. Premere il pulsante "apply changes" per confermare l'inserimento

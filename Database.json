@@ -1,0 +1,919 @@
+{
+	"1PH":{
+		"ZCS-1PH-HYD-3000_6000-ZSS-HP":{
+			"MODELLO": ["1PH HYD 3000-ZSS HP", "1PH HYD 3600-ZSS HP", "1PH HYD 4000-ZSS HP", "1PH HYD 4600-ZSS HP", "1PH HYD 5000-ZSS HP", "1PH HYD 6000-ZSS HP"],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER", "CCMASTER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				},
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": 14,
+					"Inverter -": 13
+				},
+				"Pin CCMASTER":{
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				},
+				"COMBO 3PH V3": {
+				}
+			}
+		},
+		"ZCS-1PH-HYD-3000_6000-ZSS":{
+			"MODELLO": ["1PH HYD 3000-ZSS", "1PH HYD 3600-ZSS", "1PH HYD 4000-ZSS", "1PH HYD 4600-ZSS", "1PH HYD 5000-ZSS", "1PH HYD 6000-ZSS"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				},
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-1.1_3KTL-L-G3":{
+			"MODELLO": ["1.1KTL-L", "1.6KTL-L", "2.2KTL-L", "2.7KTL-L", "3.0KTL-L", "3.3KTL-L"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {
+					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-1PH-1100_3300TL-V3":{
+			"MODELLO": ["1PH-1100TL-V3", "1PH-1600TL-V3", "1PH-2200TL-V3", "1PH-2700TL-V3", "1PH-3000TL-V3", "1PH-3300TL-V3"],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-1PH-3000_6000TLM-V3":{
+			"MODELLO": ["1PH-3000TLM-V3", "1PH-3680TLM-V3", "1PH-4000TLM-V3", "1PH-4600TLM-V3", "1PH-5000TLM-V3", "1PH-6000TLM-V3"],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": 15,
+					"Inverter -": 16
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-1100_3000TL":{
+			"MODELLO": ["1100TL", "1600TL", "2000TL", "2700TL", "3000TL"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-1PH-1100_3300TL-V1":{
+			"MODELLO": ["1100TL", "1600TL", "2000TL", "2700TL", "3000TL"],			
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-1PH-3000_6000TLM-V1":{
+			"MODELLO": ["3000TLM", "3680TLM", "4000TLM", "4600TLM", "5000TLM", "6000TLM"],			
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-3_6KTLM_L":{
+			"MODELLO": ["3000TLM", "3680TLM", "4000TLM", "4600TLM", "5000TLM", "6000TLM"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-1PH-3000_6000TLM-V2":{
+			"MODELLO": ["1PH-3000TLM-V2", "1PH-3680TLM-V2", "1PH-4000TLM-V2", "1PH-4600TLM-V2", "1PH-5000TLM-V2", "1PH-6000TLM-V2"],			
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-3000SP":{
+			"MODELLO": ["3000SP"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": false,
+				"TIPO 0-INJ": [],
+				"Pin Meter": {
+				},
+				"Pin TA": {					"TA": "Attorno alla fase relativa"
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3000SP-V2":{
+			"MODELLO": ["3000SP-V2"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": false,
+				"TIPO 0-INJ": [],
+				"Pin Meter": {
+				},
+				"Pin TA": {					"TA": "Attorno alla fase relativa"
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-HYD-3000_6000-ES":{
+			"MODELLO": ["HYD 3000-ES", "HYD 3600-ES", "HYD 4000-ES", "HYD 4600-ES", "HYD 5000-ES", "HYD 6000-ES"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-3000_6000TLM":{
+			"MODELLO": ["3000TLM", "3680TLM", "4000TLM", "4600TLM", "5000TLM", "6000TLM"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter +": 24,
+					"Meter -": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter +": "Porta CT +",
+					"Inverter -": "Porta CT -"
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		}
+	},
+	"3PH":{
+		"ZCS-SOFAR-HYD-5000_8000-T":{
+			"MODELLO": ["HYD 5000-T", "HYD 6000-T", "HYD 8000-T"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter R+": 1,
+					"Inverter R-": 2,
+					"Inverter S+": 3,
+					"Inverter S-": 4,
+					"Inverter T+": 5,
+					"Inverter T-": 6
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-HYD-5000_8000-ZSS":{
+			"MODELLO": ["3PH HYD 5000-ZSS", "3PH HYD 6000-ZSS", "3PH HYD 8000-ZSS"],
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter R+": 1,
+					"Inverter R-": 2,
+					"Inverter S+": 3,
+					"Inverter S-": 4,
+					"Inverter T+": 5,
+					"Inverter T-": 6
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-HYD-10000_20000-T":{
+			"MODELLO": ["HYD 10000-T", "HYD 15000-T", "HYD 20000-T"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter R+": 1,
+					"Inverter R-": 2,
+					"Inverter S+": 3,
+					"Inverter S-": 4,
+					"Inverter T+": 5,
+					"Inverter T-": 6
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-HYD-10000_20000-ZSS":{
+			"MODELLO": ["3PH HYD 10000-ZSS", "3PH HYD 15000-ZSS", "3PH HYD 20000-ZSS"],
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["TA", "METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {					"TA": "Attorno alla fase relativa",
+					"Inverter R+": 1,
+					"Inverter R-": 2,
+					"Inverter S+": 3,
+					"Inverter S-": 4,
+					"Inverter T+": 5,
+					"Inverter T-": 6
+				 },
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-50000_70000TL-V1":{
+			"MODELLO": ["50000TL", "60000TL", "70000TL"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-60000_80000TL-V3":{
+			"MODELLO": ["60000TL", "80000TL"],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-50000_60000TL-V1":{
+			"MODELLO": ["50000TL", "60000TL"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-80_110KTL-LV":{
+			"MODELLO": ["3PH 80KTL-LV ", "3PH 100KTL-LV ", "3PH 110KTL-LV "],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER", "ENERCLICK"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+					"Meter +": "A1",
+					"Meter -": "B1",
+					"Inverter +": "A2",
+					"Inverter -": "B2"
+				}
+			}
+		},
+		"ZCS-SOFAR-80_110KTL":{
+			"MODELLO": ["3PH 80KTL-LV ", "3PH 100KTL-LV ", "3PH 110KTL-LV "],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-100_136KTL-HV":{
+			"MODELLO": ["100 KTL-HV ", "125 KTL-HV ", "136 KTL-HV "],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER", "ENERCLICK"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+					"Meter +": "A1",
+					"Meter -": "B1",
+					"Inverter +": "A2",
+					"Inverter -": "B2"
+				}
+			}
+		},
+		"ZCS-SOFAR-100_136KTL-HV":{
+			"MODELLO": ["100 KTL-HV ", "125 KTL-HV ", "136 KTL-HV "],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-3.3_12KTL":{
+			"MODELLO": ["3.3kTL", "4.4kTL", "5.5kTL", "6.6kTL", "8.8kTL", "11kTL", "12kTL"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-3.3_12KTL-V1":{
+			"MODELLO": ["3PH 3.3kTL-V1", "3PH 4.4kTL-V1", "3PH 5.5kTL-V1", "3PH 6.6kTL-V1", "3PH 8.8kTL-V1", "3PH 11kTL-V1", "3PH 12kTL-V1"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-3.3_12KTL-V3":{
+			"MODELLO": ["3PH 3.3kTL-V3", "3PH 4.4kTL-V3", "3PH 5.5kTL-V3", "3PH 6.6kTL-V3", "3PH 8.8kTL-V3", "3PH 11kTL-V3", "3PH 12kTL-V3"],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER", "ENERCLICK"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+					"Meter +": "A1",
+					"Meter -": "B1",
+					"Inverter +": "A2",
+					"Inverter -": "B2"
+				}
+			}
+		},
+		"ZCS-3PH-10_15KTL-V2":{
+			"MODELLO": ["3PH 10kTL-V2", "3PH 12kTL-V2", "3PH 15kTL-V2"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER", "ARPC"],
+				"Pin Meter": {
+				},
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-10000_20000TL":{
+			"MODELLO": ["10000TL", "15000TL", "17000TL", "20000TL"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485+",
+					"Inverter -": "Porta 485-"
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-SOFAR-20000_33000TL-G2":{
+			"MODELLO": ["20000TL-G2", "25000TL-G2", "30000TL-G2", "33000TL-G2"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485+",
+					"Inverter -": "Porta 485-"
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-20000_33000TL-V2":{
+			"MODELLO": ["3PH 20000TL-G2", "3PH 25000TL-G2", "3PH 30000TL-G2", "3PH 33000TL-G2"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485+",
+					"Inverter -": "Porta 485-"
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		},
+		"ZCS-3PH-15000_24000TL-V3":{
+			"MODELLO": ["3PH 15000TL-V3", "3PH 17000TL-V3", "3PH 20000TL-V3", "3PH 22000TL-V3", "3PH 24000TL-V3"],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER", "ENERCLICK"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+					"Meter +": "A1",
+					"Meter -": "A2",
+					"Inverter +": "A2",
+					"Inverter -": "B2"
+				}
+			}
+		},
+		"ZCS-3PH-25_50KTL-V3":{
+			"MODELLO": ["3PH 25KTL-V3", "3PH 30KTL-V3", "3PH 36KTL-V3", "3PH 40KTL-V3", "3PH 45KTL-V3", "3PH 50KTL-V3"],
+			"END OF LIFE": false,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER", "ENERCLICK"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": 5,
+					"Inverter -": 6
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+					"Meter +": "A1",
+					"Meter -": "A2",
+					"Inverter +": "A2",
+					"Inverter -": "B2"
+				}
+			}
+		},
+		"ZCS-SOFAR-30000_40000TL":{
+			"MODELLO": ["3PH 15000TL-V3", "3PH 17000TL-V3", "3PH 20000TL-V3", "3PH 22000TL-V3", "3PH 24000TL-V3"],
+			"END OF LIFE": true,
+			"0-INJ": {
+				"ABLE": true,
+				"TIPO 0-INJ": ["METER"],
+				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485 +",
+					"Inverter -": "Porta 485 -"
+				 },
+				"Pin TA": {
+				},
+				"Pin ENERCLICK":{
+				}
+			}
+		}
+	},
+	"BATTERY":{
+		"ZST-BAT-2,4KWH-PL":{
+			"MODELLO": ["ZST-BAT-2,4KWH-PL"]
+		},
+		"ZST-BAT-5KWH-PL":{
+			"MODELLO": ["ZST-BAT-5KWH-PL"]
+		},
+		"ZZT-BAT-5KWH-W":{
+			"MODELLO": ["ZZT-BAT-5KWH-W"]
+		},
+		"ZZT-BAT-5KWH-ZSX":{
+			"MODELLO": ["ZZT-BAT-5KWH-ZSX"]
+		},
+		"ZST-BAT-2,4KWH-H":{
+			"MODELLO": ["ZST-BAT-2,4KWH-H"]
+		},
+		"ZZT-BAT-6KWH-W":{
+			"MODELLO": ["ZZT-BAT-6KWH-W"]
+		}
+	},
+	"ACCESSORI":{
+		"Current sensors":{
+			"MODELLO": ["ZST-ACC-TA", "ZST-ACC-TA-24", "ZST-ACC-TA-36", "ZST-ACC-3PH200", "ZST-ACC-3PH600"]
+		},
+		"Meters":{
+			"MODELLO":  ["ZSM-METER-DDSU", "ZSM-METER-DTSU", "ZSM-METER-1PH-2G", "ZSM-METER-1PH-WI", "ZSM-METER-3PH-2G",
+                       "ZSM-METER-3PH-WI", "ZSM-METER-4DR"]
+		},
+		"Single unit loggers":{
+			"MODELLO":  ["ZSM-WIFI-EXT", "ZSM-ETH-EXT", "ZSM-4G-EXT", "ZSM-WIFI-USB", "ZSM-ETH-USB",
+                                    "ZSM-4G-USB"]
+		},
+		"External loggers":{
+			"MODELLO":  ["ZSM-DATALOG-04", "ZSM-DATALOG-10", "ZSM-RMS-001/200", "ZSM-RMS-001/1000"]
+		},
+		"Connext":{
+			"MODELLO":  ["ZSM-CONNEXT"]
+		}
+	},
+	"WALLBOX":{
+		
+	}
+}
