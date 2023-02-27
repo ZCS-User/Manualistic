@@ -1,25 +1,39 @@
 import glob
+import os
 import time
-
-import pandas as pd
 from docx import Document
-from docx.shared import Inches
-from Unifilare import *
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Inches
 from docx2pdf import convert
+
+from Unifilare import *
+
 
 def documento_0inj(dict_all, serie, fase, sonda):
     document = Document()
-    document.add_heading('Configurazione Zero-Injection per inverter '+str(serie), 0)
+    header = document.sections[0].header
+    htable = header.add_table(1, 2, Inches(6))
+    htab_cells = htable.rows[0].cells
+    ht0 = htab_cells[0].add_paragraph()
+    kh = ht0.add_run()
+    kh.add_picture('./img/CartaIntestata/header.png', width=Inches(6))
+    footer = document.sections[0].footer
+    ftable = footer.add_table(1, 2, Inches(6))
+    ftab_cells = ftable.rows[0].cells
+    ft0 = ftab_cells[0].add_paragraph()
+    fh = ft0.add_run()
+    fh.add_picture('./img/CartaIntestata/footer.png', width=Inches(6))
+
+    document.add_heading('Configurazione Zero-Injection per inverter ' + str(serie), 0)
     if sonda == 'METER':
         pin = dict_all[fase][serie]["0-INJ"]["Pin Meter"]
         pin_sonda = ''
         pin_inv = ''
         for i in pin:
             if "Meter" in i:
-                pin_sonda += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin Meter"][i])+'\n'
+                pin_sonda += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin Meter"][i]) + '\n'
             elif "Inverter" in i:
-                pin_inv += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin Meter"][i])+'\n'
+                pin_inv += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin Meter"][i]) + '\n'
 
         if '1PH' in fase:
             document.add_heading('Inverter + ZSM-METER-DDSU', level=1)
@@ -32,18 +46,18 @@ def documento_0inj(dict_all, serie, fase, sonda):
         pin_inv = ''
         for i in pin:
             if "TA" in i:
-                pin_sonda += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin TA"][i])+'\n'
+                pin_sonda += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin TA"][i]) + '\n'
             elif "Inverter" in i:
-                pin_inv += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin TA"][i])+'\n'
+                pin_inv += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin TA"][i]) + '\n'
     elif sonda == 'ENERCLICK':
         pin = dict_all[fase][serie]["0-INJ"]["Pin ENERCLICK"]
         pin_com_rs485 = ''
         pin_com_inv = ''
         for i in pin:
             if "Meter" in i:
-                pin_com_rs485 += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin ENERCLICK"][i])+'\n'
+                pin_com_rs485 += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin ENERCLICK"][i]) + '\n'
             elif "Inverter" in i:
-                pin_com_inv += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin ENERCLICK"][i])+'\n'
+                pin_com_inv += i + ': ' + str(dict_all[fase][serie]["0-INJ"]["Pin ENERCLICK"][i]) + '\n'
         pin = dict_all[fase][serie]["0-INJ"]["Pin Meter"]
         pin_sonda = ''
         pin_inv = ''
@@ -98,15 +112,17 @@ def documento_0inj(dict_all, serie, fase, sonda):
                 document.add_picture('./0inj/misc/COM/hyd-1ph-hp-meter.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV', 'ZCS-3PH-100_136KTL-HV',
-                       'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2', 'ZCS-3PH-10_15KTL-V2', 'ZCS-3PH-25_50KTL-V3'
+        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV',
+                       'ZCS-3PH-100_136KTL-HV',
+                       'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
+                       'ZCS-3PH-10_15KTL-V2', 'ZCS-3PH-25_50KTL-V3'
                        ]:
             if '5 e 6' in table.cell(1, 1).text:
                 document.add_picture('./0inj/misc/COM/v3.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-    if sonda == 'TA':
+    elif sonda == 'TA':
         if "HYD" in serie and "3" in fase:
             paragraph = document.add_paragraph()
             run = paragraph.add_run()
@@ -122,15 +138,17 @@ def documento_0inj(dict_all, serie, fase, sonda):
                 document.add_picture('./0inj/misc/COM/hyd-1ph-hp-ta.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV', 'ZCS-3PH-100_136KTL-HV',
-                       'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2', 'ZCS-3PH-10_15KTL-V2', 'ZCS-3PH-25_50KTL-V3'
+        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV',
+                       'ZCS-3PH-100_136KTL-HV',
+                       'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
+                       'ZCS-3PH-10_15KTL-V2', 'ZCS-3PH-25_50KTL-V3'
                        ]:
             if '5 e 6' in table.cell(1, 1).text:
                 document.add_picture('./0inj/misc/COM/v3.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-    if sonda == 'ENERCLICK':
+    elif sonda == 'ENERCLICK':
         paragraph = document.add_paragraph()
         run = paragraph.add_run()
         run.add_picture('./0inj/misc/COM/ComBox_meter.png', width=Inches(2.55))
@@ -142,44 +160,46 @@ def documento_0inj(dict_all, serie, fase, sonda):
     time.sleep(0.5)
     document.add_heading('Unifilare', level=1)
     document.add_paragraph('\n')
-    document.add_picture('./0inj/img/Schema_'+serie+'_'+sonda+'.png', width=Inches(4.75))
+    document.add_picture('./0inj/img/Schema_' + serie + '_' + sonda + '.png', width=Inches(4.75))
     last_paragraph = document.paragraphs[-1]
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    if sonda == 'METER':
+    if sonda == 'METER' or sonda == 'ENERCLICK':
         document.add_page_break()
-        # if sonda == 'ENERCLICK':
-        #     document.add_heading('Guida alla configurazione del ComBox', level=1)
-        #     document.add_heading('Il modulo ComBox, oltre a poter controllare la Potenza prodotta dagli inverter, può '
-        #                          'effettuare il monitoraggio dei consumi dell’impianto. L\'installazione può essere '
-        #                          'eseguita utilizzando i dongle ETH (ZSM-ETH-USB, uno per inverter) oppure utilizzando '
-        #                          'la porta RS485 dell’Inverter. \nLa configurazione mediante dongle ETH, permette un'
-        #                          ' monitoraggio più accurato dei singoli Inverter ed è fortemente consigliata.')
-        #     document.add_heading('Installazione e configurazione impianto con Combox-Comunicazione ETH', level=2)
-        #     document.add_heading('L\'impianto deve essere cablato come lo schema seguente\n')
-        #     document.add_picture('./0inj/misc/Enerclick/ENERCLICK_ETH.png', width=Inches(4.75))
-        #     last_paragraph = document.paragraphs[-1]
-        #     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        #     document.add_paragraph('Gli inverter devono essere configurati con IP statico', style='List Bullet')
-        #     document.add_paragraph('Inserire 2 resistenze di terminazione da 120 Ohm sul pin 24-25 del meter e sulla '
-        #                            'coppia A1-B1 del ComBox', style='List Bullet')
-        #     document.add_paragraph('Verificare che la porta 80 del router sia aperta', style='List Bullet')
-        #
-        #     document.add_heading('Installazione e configurazione impianto con Combox-Comunicazione RS485', level=2)
-        #     document.add_heading('L\'impianto deve essere cablato come lo schema seguente\n')
-        #     document.add_picture('./0inj/misc/Enerclick/ENERCLICK_485.png', width=Inches(4.75))
-        #     last_paragraph = document.paragraphs[-1]
-        #     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        #     document.add_paragraph('Inserire 4 resistente di terminazione da 120Ω sui pin 24-25 del meter, sulla'
-        #                            ' coppia di pin A1-B1 e A2-B2 del ComBox e sui pin della porta RS485 dell\'inverter '
-        #                            'qualora la lunghezza dei cavi ecceda i 20m', style='List Bullet')
-        #     document.add_paragraph('Verificare che la porta 80 del router sia aperta', style='List Bullet')
-        #
-        #     document.add_heading('Installazione e configurazione ComBox', level=2)
-        #     document.add_heading('Lo strumento verrà venduto con un generatore 5V a barra DIN. Il ComBox va collegato '
-        #                          'come in figura\n')
-        #     document.add_picture('./0inj/misc/Enerclick/Alim_ENERCLICK.png', width=Inches(4.75))
-        #     last_paragraph = document.paragraphs[-1]
-        #     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        if sonda == 'ENERCLICK':
+            document.add_heading('Guida alla configurazione del ComBox', level=1)
+            document.add_paragraph(
+                'Il modulo ComBox, oltre a poter controllare la Potenza prodotta dagli inverter, può '
+                'effettuare il monitoraggio dei consumi dell’impianto. L\'installazione può essere '
+                'eseguita utilizzando i dongle ETH (ZSM-ETH-USB, uno per inverter) oppure utilizzando '
+                'la porta RS485 dell’Inverter. \nLa configurazione mediante dongle ETH, permette un'
+                ' monitoraggio più accurato dei singoli Inverter ed è fortemente consigliata.')
+            document.add_heading('Installazione e configurazione impianto con Combox-Comunicazione ETH', level=2)
+            document.add_heading('L\'impianto deve essere cablato come lo schema seguente\n')
+            document.add_picture('./0inj/misc/Enerclick/ENERCLICK_ETH.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph('Gli inverter devono essere configurati con IP statico', style='List Bullet')
+            document.add_paragraph('Inserire 2 resistenze di terminazione da 120 Ohm sul pin 24-25 del meter e sulla '
+                                   'coppia A1-B1 del ComBox', style='List Bullet')
+            document.add_paragraph('Verificare che la porta 80 del router sia aperta', style='List Bullet')
+
+            document.add_heading('Installazione e configurazione impianto con Combox-Comunicazione RS485', level=2)
+            document.add_paragraph('L\'impianto deve essere cablato come lo schema seguente\n')
+            document.add_picture('./0inj/misc/Enerclick/ENERCLICK_485.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph('Inserire 4 resistente di terminazione da 120Ω sui pin 24-25 del meter, sulla'
+                                   ' coppia di pin A1-B1 e A2-B2 del ComBox e sui pin della porta RS485 dell\'inverter '
+                                   'qualora la lunghezza dei cavi ecceda i 20m', style='List Bullet')
+            document.add_paragraph('Verificare che la porta 80 del router sia aperta', style='List Bullet')
+
+            document.add_heading('Installazione e configurazione ComBox', level=2)
+            document.add_paragraph('Lo strumento verrà venduto con un generatore 5V a barra DIN. Il ComBox va collegato '
+                                 'come in figura\n')
+            document.add_picture('./0inj/misc/Enerclick/Alim_ENERCLICK.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_page_break()
 
         document.add_heading('Guida alla configurazione del Meter', level=1)
         document.add_paragraph('\nCablare il meter come risportato in figura:\n')
@@ -327,7 +347,7 @@ def documento_0inj(dict_all, serie, fase, sonda):
                                'ottenere tutti i CT con valori simili a 1 e dicitura EXPORT.', style='List Bullet')
         document.add_paragraph('Riarmare l\'inverter partendo dallo switch fotovoltaico, le batterie e poi il generale '
                                'lato AC.', style='List Bullet')
-        #document.add_paragraph('Impostare in maniera automatica le batterie come da manuale.', style='List Bullet')
+        # document.add_paragraph('Impostare in maniera automatica le batterie come da manuale.', style='List Bullet')
 
     document.add_page_break()
     document.add_heading('Guida alla configurazione dell\'inverter', level=1)
@@ -354,10 +374,12 @@ def documento_0inj(dict_all, serie, fase, sonda):
             document.add_paragraph(lines[j])
             j += 1
     elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV', 'ZCS-3PH-100_136KTL-HV',
-                   'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2', 'ZCS-3PH-10_15KTL-V2',
+                   'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
+                   'ZCS-3PH-10_15KTL-V2',
                    'ZCS-3PH-25_50KTL-V3',
                    'ZCS-1PH-3000_6000TLM-V3'
                    ]:
+
         document.add_paragraph('\n')
         file = open('./0inj/misc/v3/istruzioni.txt', 'r')
         lines = file.readlines()
@@ -368,7 +390,8 @@ def documento_0inj(dict_all, serie, fase, sonda):
             last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
             document.add_paragraph(lines[j])
             j += 1
-    elif serie in ['ZCS-SOFAR-10000_20000TL', 'ZCS-1PH-1100_3300TL-V3', 'ZCS-1PH-1100_3300TL-V1', 'ZCS-1PH-3000_6000TLM-V2']:
+    elif serie in ['ZCS-SOFAR-10000_20000TL', 'ZCS-1PH-1100_3300TL-V3', 'ZCS-1PH-1100_3300TL-V1',
+                   'ZCS-1PH-3000_6000TLM-V2']:
         document.add_paragraph('\nPremere in maniera prolungata (3 secondi) il pulsante quando ci si trova nella '
                                'schermata dell’interfaccia principale per accedere al menù principale\nSelezionare '
                                '“18. Contr P(rete)” e premere il pulsante in maniera prolungata '
@@ -390,6 +413,8 @@ def documento_0inj(dict_all, serie, fase, sonda):
                                ' della radiazione solare disponibile e dei consumi domestici. A display sarà '
                                'visualizzata l’indicazione “OK” se l’impostazione sarà andata a buon fine; in caso '
                                'contrario, sarà visualizzata l’indicazione “Errore”.')
-    document.save('./0inj/'+serie+'_'+sonda+'.docx')
-    time.sleep(1)
-    convert('./0inj/'+serie+'_'+sonda+'.docx', './0inj/'+serie+'_'+sonda+'.pdf')
+    document.save('./0inj/' + serie + '_' + sonda + '.docx')
+    time.sleep(2)
+    convert('./0inj/' + serie + '_' + sonda + '.docx', './0inj/' + serie + '_' + sonda + '.pdf')
+    time.sleep(2)
+    os.remove('./0inj/' + serie + '_' + sonda + '.docx')

@@ -15,7 +15,7 @@ def unifilare(serie, fase, sonda):# opening up of images
     elif sonda in ['TA', 'CT']:
         img_sonda = Image.open("./img/misc/CurrentSensor.png")
     elif sonda in 'ENERCLICK':
-        img_sonda = Image.open("./img/misc/Combox.png")
+        img_sonda = Image.open("./img/misc/COMBOX.png")
     img_schema = Image.open("./img/misc/SchemaTot.png")
     #img1 = Image.open("./img/zcs.png")
     img_prodotto = img_prodotto.resize((130, 120))
@@ -31,4 +31,7 @@ def unifilare(serie, fase, sonda):# opening up of images
     elif sonda in ['TA', 'CT']:
         img_sonda = img_sonda.resize((60, 105))
         img.paste(img_sonda, (int(0.55*img_schema.size[0]), int(0.1*img_schema.size[1]/3)))
+    elif sonda in 'ENERCLICK':
+        img_sonda = img_sonda.resize((150, 100))
+        img.paste(img_sonda, (int(0.45*img_schema.size[0]), int(img_schema.size[1]-img_sonda.size[1])))
     img.save('./0inj/img/Schema_'+serie+'_'+sonda+'.png')

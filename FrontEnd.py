@@ -1,16 +1,10 @@
-import glob
-from tkinter import *
-import tkinter as tk
 import ctypes
-import pandas as pd
-from PIL import ImageTk, Image
-from pandastable import Table, TableModel
-import random
-import tkinter as tk
-from tkinter import ttk
-from PIL import Image, ImageTk
-from Stampa0inj import *
 import json
+import tkinter as tk
+from tkinter import *
+from tkinter import ttk
+import pandas as pd
+from Stampa0inj import *
 
 myappid = 'mycompany.myproduct.subproduct.version'  # arbitrary string
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
@@ -36,29 +30,6 @@ class AutoScrollbar(ttk.Scrollbar):
 
 class MyWindow:
     def __init__(self, win):
-        self.lbl_a = None
-        self.lbl_b = None
-        self.lbl_c = None
-        self.table_ser = None
-        self.bservice = None
-        self.optionmenu_c = None
-        self.optionmenu_b = None
-        self.optionmenu_a = None
-        self.modello = None
-        self.serie = None
-        self.tipologia = None
-        self.table = None
-        self.opt_info_inst1 = None
-        self.opt_info_inst2 = None
-        self.dict_add_inst = None
-        self.dict_add_info = None
-        self.info_inst1 = None
-        self.info_inst2 = None
-        self.binfo = None
-        self.info1 = None
-        self.info2 = None
-        self.opt_info1 = None
-        self.opt_info2 = None
         self.newWindow = win
 
         self.dict = {'1PH': ph1,
@@ -106,50 +77,80 @@ class MyWindow:
 
     def load_config(self):
         #  reading config file
-        df_manual = pd.read_excel("Config.xlsx", sheet_name='CONFIG')
+        self.df_manual = pd.read_excel("Config.xlsx", sheet_name='CONFIG')
         self.Window_mod = Toplevel(self.newWindow)
-        if df_manual['FUNZIONE'][0] == '0-inj':
+        if self.df_manual['FUNZIONE'][0] == '0-inj':
             self.Window_mod.title(" 0 injection")
-        elif df_manual['FUNZIONE'][0] == 'DRMn':
+        elif self.df_manual['FUNZIONE'][0] == 'DRMn':
             self.Window_mod.title(" DRMn")
         self.Window_mod.iconbitmap(r'img\azzurro.ico')
-        self.Window_mod.geometry("620x250")
+        self.Window_mod.geometry("420x100")
 
-        self.modes = tk.StringVar(self.Window_mod)
+        modes = tk.StringVar()
+        self.modes_combobox = ttk.Combobox(self.Window_mod, textvariable=modes)
+        if len(self.df_manual['MODELLO INVERTER']) != 0:
+            if len(self.df_manual['MODELLO INVERTER']) == 1:
+                self.modes_combobox['values'] = ['TA', 'METER', 'COMBOX', 'CCMASTER']
+            else:
+                a = 0
+                for i in self.df_manual['MODELLO INVERTER']:
+                    if ('V1' in i or 'V2' in i) and (i != 'ZCS-3PH-50000_60000TL-V1'):
+                        a = 1
+                if a == 0:
+                    if len(self.df_manual['MODELLO INVERTER']) > 4 or float(self.df_manual['POTENZA TOTALE IMPIANTO [kW]'][0]) > 40:
+                        self.modes_combobox['values'] = ['COMBOX']
+                    else:
+                        self.modes_combobox['values'] = ['COMBOX', 'CCMASTER']
 
-        
-        self.lbl_c = Label(self.Window_mod, text='Modello', bg=bg)
-        self.lbl_c.place(x=400, y=10)
-        self.optionmenu_c.place(x=400, y=30)
+        self.modes_combobox.pack()
+        self.lbl_combobox = Label(self.Window_mod, text='Con cosa vuoi fare la 0-immissione?', bg=bg)
+        self.lbl_combobox.place(x=50, y=10)
+        self.modes_combobox.place(x=50, y=40)
 
         self.binfo = Button(self.Window_mod, text='INFO', command=self.print_info, width=width, bg='lightgreen')
-        self.binfo.place(x=400, y=140)
+        self.binfo.place(x=200, y=35)
 
 
     def print_info(self):
-        value = [self.tipologia.get(), self.serie.get(), self.modello.get(),
-                 self.info_inst1.get(), self.info_inst2.get(),
-                 # self.info1.get(), self.info2.get()
-                 ]
-        if value[3] == 'Zero Injection':
-            if dict_all[value[0]][value[1]]['0-INJ']['ABLE'] == True:
-                if value[4] in dict_all[value[0]][value[1]]['0-INJ']['TIPO 0-INJ']:
-                    documento_0inj(dict_all, value[1], value[0], value[4])
-                else:
-                    Window_info2 = Toplevel(self.newWindow)
-                    Window_info2.title("Error")
-                    Window_info2.geometry("300x50")
-                    Window_info2.iconbitmap('img/azzurro.ico')
-                    self.lbl_info_err = Label(Window_info2, text='Questo metodo non è compreso in questo prodotto',
-                                              bg=bg)
-                    self.lbl_info_err.place(x=10, y=10)
-            else:
-                Window_info2 = Toplevel(self.newWindow)
-                Window_info2.title("Error")
-                Window_info2.geometry("200x50")
-                Window_info2.iconbitmap('img/azzurro.ico')
-                self.lbl_info_err = Label(Window_info2, text='Questo modello non ha lo 0-inj', bg=bg)
-                self.lbl_info_err.place(x=10, y=10)
+        zero_inj = 0
+        for i in self.df_manual['MODELLO INVERTER']:
+            try:
+                if dict_all['1PH'][i]['0-INJ']['ABLE'] != True:
+                    zero_inj += 1
+                # debug
+                # else:
+                #     print(i)
+
+            except:
+                try:
+                    if dict_all['3PH'][i]['0-INJ']['ABLE'] != True:
+                        zero_inj += 1
+                    # debug
+                    # else:
+                    #     print(i)
+                except:
+                    zero_inj += 1
+
+            if zero_inj == 0 and self.modes_combobox.get() != '':
+                probe = self.modes_combobox.get()
+                if probe == 'COMBOX':
+                    probe = 'ENERCLICK'
+                try:
+                    if probe in dict_all['1PH'][i]['0-INJ']['TIPO 0-INJ']:
+                        documento_0inj(dict_all, i, '1PH', probe)
+                except:
+                    if probe in dict_all['3PH'][i]['0-INJ']['TIPO 0-INJ']:
+                        documento_0inj(dict_all, i, '3PH', probe)
+
+        if zero_inj != 0 or self.modes_combobox.get() == '':
+            Window_info2 = Toplevel(self.newWindow)
+            Window_info2.title("Error")
+            Window_info2.geometry("200x50")
+            Window_info2.iconbitmap('img/azzurro.ico')
+            self.lbl_info_err = Label(Window_info2, text='Questo modello non ha lo 0-inj', bg=bg)
+            self.lbl_info_err.place(x=10, y=10)
+
+
 
 
 bg = "#f5f6f7"
