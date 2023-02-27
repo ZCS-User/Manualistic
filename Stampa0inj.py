@@ -350,69 +350,70 @@ def documento_0inj(dict_all, serie, fase, sonda):
         # document.add_paragraph('Impostare in maniera automatica le batterie come da manuale.', style='List Bullet')
 
     document.add_page_break()
-    document.add_heading('Guida alla configurazione dell\'inverter', level=1)
-    if "HYD" in serie and "3" in fase:
-        document.add_paragraph('\n')
-        file = open('./0inj/misc/hyd 3ph/istruzioni.txt', 'r')
-        lines = file.readlines()
-        j = 0
-        for i in glob.glob('./0inj/misc/hyd 3ph/*.png'):
-            document.add_picture(i, width=Inches(4.75))
-            last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            document.add_paragraph(lines[j])
-            j += 1
-    elif "HYD" in serie and "1" in fase:
-        document.add_paragraph('\n')
-        file = open('./0inj/misc/hyd 1ph/istruzioni.txt', 'r')
-        lines = file.readlines()
-        j = 0
-        for i in glob.glob('./0inj/misc/hyd 1ph/*.png'):
-            document.add_picture(i, width=Inches(4.75))
-            last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            document.add_paragraph(lines[j])
-            j += 1
-    elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV', 'ZCS-3PH-100_136KTL-HV',
-                   'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
-                   'ZCS-3PH-10_15KTL-V2',
-                   'ZCS-3PH-25_50KTL-V3',
-                   'ZCS-1PH-3000_6000TLM-V3'
-                   ]:
+    if sonda != 'ENERCLICK':
+        document.add_heading('Guida alla configurazione dell\'inverter', level=1)
+        if "HYD" in serie and "3" in fase:
+            document.add_paragraph('\n')
+            file = open('./0inj/misc/hyd 3ph/istruzioni.txt', 'r')
+            lines = file.readlines()
+            j = 0
+            for i in glob.glob('./0inj/misc/hyd 3ph/*.png'):
+                document.add_picture(i, width=Inches(4.75))
+                last_paragraph = document.paragraphs[-1]
+                last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                document.add_paragraph(lines[j])
+                j += 1
+        elif "HYD" in serie and "1" in fase:
+            document.add_paragraph('\n')
+            file = open('./0inj/misc/hyd 1ph/istruzioni.txt', 'r')
+            lines = file.readlines()
+            j = 0
+            for i in glob.glob('./0inj/misc/hyd 1ph/*.png'):
+                document.add_picture(i, width=Inches(4.75))
+                last_paragraph = document.paragraphs[-1]
+                last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                document.add_paragraph(lines[j])
+                j += 1
+        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV', 'ZCS-3PH-100_136KTL-HV',
+                       'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
+                       'ZCS-3PH-10_15KTL-V2',
+                       'ZCS-3PH-25_50KTL-V3',
+                       'ZCS-1PH-3000_6000TLM-V3'
+                       ]:
 
-        document.add_paragraph('\n')
-        file = open('./0inj/misc/v3/istruzioni.txt', 'r')
-        lines = file.readlines()
-        j = 0
-        for i in glob.glob('./0inj/misc/v3/*.jpg'):
-            document.add_picture(i, width=Inches(4.75))
-            last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            document.add_paragraph(lines[j])
-            j += 1
-    elif serie in ['ZCS-SOFAR-10000_20000TL', 'ZCS-1PH-1100_3300TL-V3', 'ZCS-1PH-1100_3300TL-V1',
-                   'ZCS-1PH-3000_6000TLM-V2']:
-        document.add_paragraph('\nPremere in maniera prolungata (3 secondi) il pulsante quando ci si trova nella '
-                               'schermata dell’interfaccia principale per accedere al menù principale\nSelezionare '
-                               '“18. Contr P(rete)” e premere il pulsante in maniera prolungata '
-                               'per accedere al relativo menù, da cui sarà possibile abilitare la funzione di '
-                               '“Reflux Power”, ovvero la possibilità di impostare la massima potenza immessa in '
-                               'rete. A display apparirà l’indicazione “Immettere PWD!”, quindi digitare la'
-                               ' password “0001” premendo brevemente il pulsante per incrementare la cifra '
-                               'selezionata e premendo in maniera prolungata il pulsante per passare a quella '
-                               'seguente e confermare. Se dovesse comparire a display l’indicazione “Errore, '
-                               'riprova!”, premere nuovamente il tasto e digitare nuovamente la password. Quando la '
-                               'password digitata risulterà corretta, sarà possibile accedere al menù. A questo '
-                               'punto, premendo brevemente il pulsante sarà possibile scegliere l’opzione '
-                               '“1.Abilita” o “2.Disabilita” e selezionarla premendo il pulsante in maniera '
-                               'prolungata. Se viene selezionata l’opzione “1.Abilita”, premendo brevemente il'
-                               ' pulsante sarà possibile selezionare il valore di potenza (espresso in kW, fino al'
-                               ' secondo decimale) di potenza massima che l’inverter andrà a immettere in rete; in'
-                               ' tal modo l’inverter potrà immettere nella rete elettrica nazionale un quantità di'
-                               ' potenza massima compresa tra 0 kW e la potenza nominale dell’inverter, sulla base'
-                               ' della radiazione solare disponibile e dei consumi domestici. A display sarà '
-                               'visualizzata l’indicazione “OK” se l’impostazione sarà andata a buon fine; in caso '
-                               'contrario, sarà visualizzata l’indicazione “Errore”.')
+            document.add_paragraph('\n')
+            file = open('./0inj/misc/v3/istruzioni.txt', 'r')
+            lines = file.readlines()
+            j = 0
+            for i in glob.glob('./0inj/misc/v3/*.jpg'):
+                document.add_picture(i, width=Inches(4.75))
+                last_paragraph = document.paragraphs[-1]
+                last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                document.add_paragraph(lines[j])
+                j += 1
+        elif serie in ['ZCS-SOFAR-10000_20000TL', 'ZCS-1PH-1100_3300TL-V3', 'ZCS-1PH-1100_3300TL-V1',
+                       'ZCS-1PH-3000_6000TLM-V2']:
+            document.add_paragraph('\nPremere in maniera prolungata (3 secondi) il pulsante quando ci si trova nella '
+                                   'schermata dell’interfaccia principale per accedere al menù principale\nSelezionare '
+                                   '“18. Contr P(rete)” e premere il pulsante in maniera prolungata '
+                                   'per accedere al relativo menù, da cui sarà possibile abilitare la funzione di '
+                                   '“Reflux Power”, ovvero la possibilità di impostare la massima potenza immessa in '
+                                   'rete. A display apparirà l’indicazione “Immettere PWD!”, quindi digitare la'
+                                   ' password “0001” premendo brevemente il pulsante per incrementare la cifra '
+                                   'selezionata e premendo in maniera prolungata il pulsante per passare a quella '
+                                   'seguente e confermare. Se dovesse comparire a display l’indicazione “Errore, '
+                                   'riprova!”, premere nuovamente il tasto e digitare nuovamente la password. Quando la '
+                                   'password digitata risulterà corretta, sarà possibile accedere al menù. A questo '
+                                   'punto, premendo brevemente il pulsante sarà possibile scegliere l’opzione '
+                                   '“1.Abilita” o “2.Disabilita” e selezionarla premendo il pulsante in maniera '
+                                   'prolungata. Se viene selezionata l’opzione “1.Abilita”, premendo brevemente il'
+                                   ' pulsante sarà possibile selezionare il valore di potenza (espresso in kW, fino al'
+                                   ' secondo decimale) di potenza massima che l’inverter andrà a immettere in rete; in'
+                                   ' tal modo l’inverter potrà immettere nella rete elettrica nazionale un quantità di'
+                                   ' potenza massima compresa tra 0 kW e la potenza nominale dell’inverter, sulla base'
+                                   ' della radiazione solare disponibile e dei consumi domestici. A display sarà '
+                                   'visualizzata l’indicazione “OK” se l’impostazione sarà andata a buon fine; in caso '
+                                   'contrario, sarà visualizzata l’indicazione “Errore”.')
     document.save('./0inj/' + serie + '_' + sonda + '.docx')
     time.sleep(2)
     convert('./0inj/' + serie + '_' + sonda + '.docx', './0inj/' + serie + '_' + sonda + '.pdf')
