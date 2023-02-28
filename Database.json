@@ -198,7 +198,7 @@
 			"MODELLO": ["3PH HYD 10000-ZSS", "3PH HYD 15000-ZSS", "3PH HYD 20000-ZSS"],
 			"0-INJ": {
 				"ABLE": true,
-				"TIPO 0-INJ": ["TA", "METER"],
+				"TIPO 0-INJ": ["TA", "METER", "ENERCLICK"],
 				"Pin Meter": {
 					"Meter CT R+": 1,
 					"Meter CT R-": 3,
@@ -223,6 +223,10 @@
 					"Inverter T-": 6
 				 },
 				"Pin ENERCLICK":{
+					"Meter +": "A1",
+					"Meter -": "B1",
+					"Inverter +": "A2",
+					"Inverter -": "B2"
 				}
 			}
 		},
@@ -231,7 +235,7 @@
 			"END OF LIFE": false,
 			"0-INJ": {
 				"ABLE": true,
-				"TIPO 0-INJ": ["METER"],
+				"TIPO 0-INJ": ["METER", "ENERCLICK"],
 				"Pin Meter": {
 					"Meter CT R+": 1,
 					"Meter CT R-": 3,
@@ -250,6 +254,10 @@
 				"Pin TA": {
 				},
 				"Pin ENERCLICK":{
+					"Meter +": "A1",
+					"Meter -": "B1",
+					"Inverter +": "A2",
+					"Inverter -": "B2"
 				}
 			}
 		},
