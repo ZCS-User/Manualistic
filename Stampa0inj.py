@@ -415,7 +415,7 @@ def documento_0inj(dict_all, serie, fase, sonda):
                                    'visualizzata l’indicazione “OK” se l’impostazione sarà andata a buon fine; in caso '
                                    'contrario, sarà visualizzata l’indicazione “Errore”.')
     document.save('./0inj/' + serie + '_' + sonda + '.docx')
-    time.sleep(2)
+    time.sleep(1)
     convert('./0inj/' + serie + '_' + sonda + '.docx', './0inj/' + serie + '_' + sonda + '.pdf')
-    time.sleep(2)
+    time.sleep(1)
     os.remove('./0inj/' + serie + '_' + sonda + '.docx')
