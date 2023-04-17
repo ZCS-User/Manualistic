@@ -24,6 +24,11 @@ def documento_0inj(dict_all, serie, fase, sonda):
     fh = ft0.add_run()
     fh.add_picture('./img/CartaIntestata/footer.png', width=Inches(6))
 
+    document.add_heading('Introduzione', 0)
+    document.add_paragraph('\nNei casi in cui fosse necessario impostare la zero immissione sull\'inverter '
+                           + serie + ', questo documento riporta tutti i passaggi da fare nel caso si usasse il '
+                                     'sensore ' + sonda)
+
     document.add_heading('Configurazione Zero-Injection per inverter ' + str(serie), 0)
     if sonda == 'METER':
         pin = dict_all[fase][serie]["0-INJ"]["Pin Meter"]
@@ -95,32 +100,38 @@ def documento_0inj(dict_all, serie, fase, sonda):
 
     if sonda == 'METER':
         if "HYD" in serie and "3" in fase:
-            if '5 e 6' in table.cell(1, 1).text:
-                paragraph = document.add_paragraph()
-                run = paragraph.add_run()
-                run.add_picture('./0inj/misc/COM/hyd-3ph-hp-meter1.png', width=Inches(2.55))
-                run_2 = paragraph.add_run()
-                run_2.add_picture('./0inj/misc/COM/hyd-3ph-hp-meter2.png', width=Inches(2.55))
-                last_paragraph = document.paragraphs[-1]
-                last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            paragraph = document.add_paragraph()
+            run = paragraph.add_run()
+            run.add_picture('./0inj/misc/COM/hyd-3ph-hp-meter1.png', width=Inches(2.55))
+            run_2 = paragraph.add_run()
+            run_2.add_picture('./0inj/misc/COM/hyd-3ph-hp-meter2.png', width=Inches(2.55))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
         elif "HYD" in serie and "1" in fase:
-            if 'ZCS-1PH-HYD-3000_6000-ZSS' in serie:
+            if 'ZCS-1PH-HYD-3000_6000-ZSS' == serie:
                 document.add_picture('./0inj/misc/COM/hyd-1ph-zss-meter.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            if 'ZCS-1PH-HYD-3000_6000-ZSS-HP' in serie:
+            elif 'ZCS-1PH-HYD-3000_6000-ZSS-HP' in serie:
                 document.add_picture('./0inj/misc/COM/hyd-1ph-hp-meter.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV',
-                       'ZCS-3PH-100_136KTL-HV',
-                       'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
-                       'ZCS-3PH-10_15KTL-V2', 'ZCS-3PH-25_50KTL-V3'
-                       ]:
-            if '5 e 6' in table.cell(1, 1).text:
-                document.add_picture('./0inj/misc/COM/v3.png', width=Inches(2.55))
+            elif serie in ['ZCS-1PH-1.1_3KTL-V3', 'ZCS-1PH-3_6kTL-V3']:
+                document.add_picture('./0inj/misc/COM/v3-1ph-meter.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV',
+                       'ZCS-3PH-100_136KTL-HV', 'ZCS-3PH-60000_80000TL-V3',
+                       'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-25_50KTL-V3'
+                       ]:
+            document.add_picture('./0inj/misc/COM/v3.png', width=Inches(2.55))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        elif serie in ['ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-20000_33000TL-V2',
+                       'ZCS-3PH-10_15KTL-V2']:
+            document.add_picture('./0inj/misc/COM/v2-3ph-meter.png', width=Inches(2.55))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     elif sonda == 'TA':
         if "HYD" in serie and "3" in fase:
@@ -130,23 +141,29 @@ def documento_0inj(dict_all, serie, fase, sonda):
             last_paragraph = document.paragraphs[-1]
             last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
         elif "HYD" in serie and "1" in fase:
-            if 'ZCS-1PH-HYD-3000_6000-ZSS' in serie:
+            if 'ZCS-1PH-HYD-3000_6000-ZSS' == serie:
                 document.add_picture('./0inj/misc/COM/hyd-1ph-zss-ta.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            if 'ZCS-1PH-HYD-3000_6000-ZSS-HP' in serie:
+            elif 'ZCS-1PH-HYD-3000_6000-ZSS-HP' in serie:
                 document.add_picture('./0inj/misc/COM/hyd-1ph-hp-ta.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV',
-                       'ZCS-3PH-100_136KTL-HV',
-                       'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
-                       'ZCS-3PH-10_15KTL-V2', 'ZCS-3PH-25_50KTL-V3'
-                       ]:
-            if '5 e 6' in table.cell(1, 1).text:
-                document.add_picture('./0inj/misc/COM/v3.png', width=Inches(2.55))
+            elif serie in ['ZCS-1PH-1.1_3KTL-V3', 'ZCS-1PH-3_6kTL-V3']:
+                document.add_picture('./0inj/misc/COM/v3-1ph-ta.png', width=Inches(2.55))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV',
+                       'ZCS-3PH-100_136KTL-HV', 'ZCS-3PH-60000_80000TL-V3',
+                       'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-25_50KTL-V3'
+                       ]:
+            document.add_picture('./0inj/misc/COM/v3.png', width=Inches(2.55))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        elif serie in ['ZCS-1PH-1100_3300TL-V1', 'ZCS-1PH-3000_6000TLM-V2', 'ZCS-1PH-3000_6000TLM-V1']:
+            document.add_picture('./0inj/misc/COM/v1-1ph-ta.png', width=Inches(2.55))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     elif sonda == 'ENERCLICK':
         paragraph = document.add_paragraph()
@@ -194,8 +211,9 @@ def documento_0inj(dict_all, serie, fase, sonda):
             document.add_paragraph('Verificare che la porta 80 del router sia aperta', style='List Bullet')
 
             document.add_heading('Installazione e configurazione ComBox', level=2)
-            document.add_paragraph('Lo strumento verrà venduto con un generatore 5V a barra DIN. Il ComBox va collegato '
-                                 'come in figura\n')
+            document.add_paragraph(
+                'Lo strumento verrà venduto con un generatore 5V a barra DIN. Il ComBox va collegato '
+                'come in figura\n')
             document.add_picture('./0inj/misc/Enerclick/Alim_ENERCLICK.png', width=Inches(4.75))
             last_paragraph = document.paragraphs[-1]
             last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -374,7 +392,8 @@ def documento_0inj(dict_all, serie, fase, sonda):
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 document.add_paragraph(lines[j])
                 j += 1
-        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV', 'ZCS-3PH-100_136KTL-HV',
+        elif serie in ['ZCS-3PH-3.3_12KTL-V3', 'ZCS-3PH-15000_24000TL-V3', 'ZCS-3PH-80_110KTL-LV',
+                       'ZCS-3PH-100_136KTL-HV', 'ZCS-3PH-60000_80000TL-V3',
                        'ZCS-3PH-3.3_12KTL-V1', 'ZCS-3PH-50000_60000TL-V1', 'ZCS-3PH-20000_33000TL-V2',
                        'ZCS-3PH-10_15KTL-V2',
                        'ZCS-3PH-25_50KTL-V3',
@@ -414,8 +433,8 @@ def documento_0inj(dict_all, serie, fase, sonda):
                                    ' della radiazione solare disponibile e dei consumi domestici. A display sarà '
                                    'visualizzata l’indicazione “OK” se l’impostazione sarà andata a buon fine; in caso '
                                    'contrario, sarà visualizzata l’indicazione “Errore”.')
-    document.save('./0inj/' + serie + '_' + sonda + '.docx')
+    document.save('./0inj/0-inj_' + serie + '_' + sonda + '.docx')
     time.sleep(1)
-    convert('./0inj/' + serie + '_' + sonda + '.docx', './0inj/' + serie + '_' + sonda + '.pdf')
+    convert('./0inj/0-inj_' + serie + '_' + sonda + '.docx', './0inj/0-inj_' + serie + '_' + sonda + '.pdf')
     time.sleep(1)
-    os.remove('./0inj/' + serie + '_' + sonda + '.docx')
+    os.remove('./0inj/0-inj_' + serie + '_' + sonda + '.docx')

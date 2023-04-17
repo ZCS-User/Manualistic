@@ -235,7 +235,7 @@
 			"END OF LIFE": false,
 			"0-INJ": {
 				"ABLE": true,
-				"TIPO 0-INJ": ["METER", "ENERCLICK"],
+				"TIPO 0-INJ": ["TA", "METER", "ENERCLICK"],
 				"Pin Meter": {
 					"Meter CT R+": 1,
 					"Meter CT R-": 3,
@@ -368,8 +368,8 @@
 					"Meter VT": 8,
 					"Meter 485+": 24,
 					"Meter 485-": 25,
-					"Inverter +": 5,
-					"Inverter -": 6
+					"Inverter +": "Porta 485+ (PIN 4)",
+					"Inverter -": "Porta 485- (PIN 5)"
 				 },
 				"Pin TA": {
 				},
@@ -415,6 +415,19 @@
 				"ABLE": true,
 				"TIPO 0-INJ": ["METER", "ARPC"],
 				"Pin Meter": {
+					"Meter CT R+": 1,
+					"Meter CT R-": 3,
+					"Meter CT S+": 4,
+					"Meter CT S-": 6,
+					"Meter CT T+": 7,
+					"Meter CT T-": 9,
+					"Meter VR": 2,
+					"Meter VS": 5,
+					"Meter VT": 8,
+					"Meter 485+": 24,
+					"Meter 485-": 25,
+					"Inverter +": "Porta 485+ (PIN 4)",
+					"Inverter -": "Porta 485- (PIN 5)"
 				},
 				"Pin TA": {
 				},
@@ -440,8 +453,8 @@
 					"Meter VT": 8,
 					"Meter 485+": 24,
 					"Meter 485-": 25,
-					"Inverter +": "Porta 485+",
-					"Inverter -": "Porta 485-"
+					"Inverter +": "Porta 485+ (PIN 4)",
+					"Inverter -": "Porta 485- (PIN 5)"
 				 },
 				"Pin TA": {
 				},

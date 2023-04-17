@@ -88,19 +88,20 @@ class MyWindow:
 
         modes = tk.StringVar()
         self.modes_combobox = ttk.Combobox(self.Window_mod, textvariable=modes)
-        if len(self.df_manual['MODELLO INVERTER']) != 0:
-            if len(self.df_manual['MODELLO INVERTER']) == 1:
-                self.modes_combobox['values'] = ['TA', 'METER', 'COMBOX', 'CCMASTER']
-            else:
-                a = 0
-                for i in self.df_manual['MODELLO INVERTER']:
-                    if ('V1' in i or 'V2' in i) and (i != 'ZCS-3PH-50000_60000TL-V1'):
-                        a = 1
-                if a == 0:
-                    if len(self.df_manual['MODELLO INVERTER']) > 4 or float(self.df_manual['POTENZA TOTALE IMPIANTO [kW]'][0]) > 40:
-                        self.modes_combobox['values'] = ['COMBOX']
-                    else:
-                        self.modes_combobox['values'] = ['COMBOX', 'CCMASTER']
+        self.modes_combobox['values'] = ['TA', 'METER', 'COMBOX', 'CCMASTER']
+        # if len(self.df_manual['MODELLO INVERTER']) != 0:
+        #     if len(self.df_manual['MODELLO INVERTER']) == 1:
+        #         self.modes_combobox['values'] = ['TA', 'METER', 'COMBOX', 'CCMASTER']
+        #     else:
+        #         a = 0
+        #         for i in self.df_manual['MODELLO INVERTER']:
+        #             if ('V1' in i or 'V2' in i) and (i != 'ZCS-3PH-50000_60000TL-V1'):
+        #                 a = 1
+        #         if a == 0:
+        #             if len(self.df_manual['MODELLO INVERTER']) > 4 or float(self.df_manual['POTENZA TOTALE IMPIANTO [kW]'][0]) > 40:
+        #                 self.modes_combobox['values'] = ['COMBOX']
+        #             else:
+        #                 self.modes_combobox['values'] = ['COMBOX', 'CCMASTER']
 
         self.modes_combobox.pack()
         self.lbl_combobox = Label(self.Window_mod, text='Con cosa vuoi fare la 0-immissione?', bg=bg)
