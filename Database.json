@@ -183,12 +183,12 @@
 					"Inverter -": 6
 				 },
 				"Pin TA": {					"TA": "Attorno alla fase relativa",
-					"Inverter R+": 1,
-					"Inverter R-": 2,
-					"Inverter S+": 3,
-					"Inverter S-": 4,
-					"Inverter T+": 5,
-					"Inverter T-": 6
+					"Inverter R-": 1,
+					"Inverter R+": 2,
+					"Inverter S-": 3,
+					"Inverter S+": 4,
+					"Inverter T-": 5,
+					"Inverter T+": 6
 				 },
 				"Pin ENERCLICK":{
 				}
@@ -215,12 +215,12 @@
 					"Inverter -": 6
 				 },
 				"Pin TA": {					"TA": "Attorno alla fase relativa",
-					"Inverter R+": 1,
-					"Inverter R-": 2,
-					"Inverter S+": 3,
-					"Inverter S-": 4,
-					"Inverter T+": 5,
-					"Inverter T-": 6
+					"Inverter R-": 1,
+					"Inverter R+": 2,
+					"Inverter S-": 3,
+					"Inverter S+": 4,
+					"Inverter T-": 5,
+					"Inverter T+": 6
 				 },
 				"Pin ENERCLICK":{
 					"Meter +": "A1",

@@ -27,7 +27,10 @@ def unifilare(serie, fase, sonda):# opening up of images
     img.paste(img_schema, (0, 0))
     img.paste(img_prodotto, (0, 0))
     if sonda == 'METER':
-        img.paste(img_sonda, (int(0.53*img_schema.size[0]), int(img_schema.size[1]-img_sonda.size[1])))
+        if '1' in fase:
+            img.paste(img_sonda, (int(0.55*img_schema.size[0]), int(0.1*img_schema.size[1]/3)))
+        else:
+            img.paste(img_sonda, (int(0.53*img_schema.size[0]), int(img_schema.size[1]-img_sonda.size[1])))
     elif sonda in ['TA', 'CT']:
         img_sonda = img_sonda.resize((60, 105))
         img.paste(img_sonda, (int(0.55*img_schema.size[0]), int(0.1*img_schema.size[1]/3)))

@@ -223,62 +223,96 @@ def documento_0inj(dict_all, serie, fase, sonda):
         document.add_paragraph('\nCablare il meter come risportato in figura:\n')
         if "3" in fase:
             document.add_picture('./0inj/misc/meter/Meter+CT-3ph.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph('\nCablare il meter all\'inverter come riportato nella tabella sopra riportata.'
+                                   '\nPer configurare il meter DTSU è necessario fare le seguenti operazioni:')
+            document.add_paragraph(
+                'Premere SET sul meter. ', style='List Bullet'
+            )
+            document.add_paragraph(
+                'Quando comparirà la scritta CODE, premere SET una seconda volta. ', style='List Bullet'
+            )
+            document.add_paragraph(
+                'Scrivere 701 usando il tasto SET per spostare il cursore verso sinistra e “→” per aumentare di 1 la cifra'
+                ' selezionata. In caso di errore premere ESC e poi di nuovo SET per reimpostare il codice voluto.',
+                style='List Bullet'
+            )
+            document.add_picture('./0inj/misc/meter/PortaCHINT.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph(
+                'Confermare il numero premendo SET più volte finché non compare la scritta CT.',
+                style='List Bullet'
+            )
+            document.add_paragraph(
+                'Premere SET per configurare il rapporto primario/secondario del CT.',
+                style='List Bullet'
+            )
+            document.add_paragraph(
+                'Impostare il valore del rapporto primario/secondario nella stessa maniera con cui è stato configurato '
+                'il valore precedente. Per le nostre sonde, il rapporto è 40.',
+                style='List Bullet'
+            )
+            document.add_paragraph(
+                'Premere ESC per confermare e “→” per scorrere fino all’impostazione ADDR.',
+                style='List Bullet'
+            )
+            document.add_picture('./0inj/misc/meter/ctCHINT.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph(
+                'Premere SET per configurare l\'indirizzo del meter.',
+                style='List Bullet'
+            )
+            document.add_paragraph(
+                'Se il meter in oggetto è il meter di scambio, lasciare “01” come indirizzo.\nSe il meter è un meter non di'
+                ' scambio, selezionare il numero successivo. In questa modo, l\'inverter assegnerà come potenze relative '
+                'alla produzione i dati inviati dal meter. Possono essere collegati massimo 3 meter non di scambio, '
+                'ovvero fino all\'indirizzo "04" (da "02 a "04").',
+                style='List Bullet'
+            )
+            document.add_paragraph(
+                'Premere ESC per confermare e ESC di nuovo per uscire dal menù.',
+                style='List Bullet'
+            )
+            document.add_picture('./0inj/misc/meter/AdressCHINT.png', width=Inches(4.75))
         elif "1" in fase:
             document.add_picture('./0inj/misc/meter/Meter+CT-ph.png', width=Inches(4.75))
-        last_paragraph = document.paragraphs[-1]
-        last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        document.add_paragraph('\nCablare il meter all\'inverter come riportato nella tabella sopra riportata.'
-                               '\nPer configurare il meter DTSU è necessario fare le seguenti operazioni:')
-        document.add_paragraph(
-            'Premere SET sul meter. ', style='List Bullet'
-        )
-        document.add_paragraph(
-            'Quando comparirà la scritta CODE, premere SET una seconda volta. ', style='List Bullet'
-        )
-        document.add_paragraph(
-            'Scrivere 701 usando il tasto SET per spostare il cursore verso sinistra e “→” per aumentare di 1 la cifra'
-            ' selezionata. In caso di errore premere ESC e poi di nuovo SET per reimpostare il codice voluto.',
-            style='List Bullet'
-        )
-        document.add_picture('./0inj/misc/meter/PortaCHINT.png', width=Inches(4.75))
-        last_paragraph = document.paragraphs[-1]
-        last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        document.add_paragraph(
-            'Confermare il numero premendo SET più volte finché non compare la scritta CT.',
-            style='List Bullet'
-        )
-        document.add_paragraph(
-            'Premere SET per configurare il rapporto primario/secondario del CT.',
-            style='List Bullet'
-        )
-        document.add_paragraph(
-            'Impostare il valore del rapporto primario/secondario nella stessa maniera con cui è stato configurato '
-            'il valore precedente. Per le nostre sonde, il rapporto è 40.',
-            style='List Bullet'
-        )
-        document.add_paragraph(
-            'Premere ESC per confermare e “→” per scorrere fino all’impostazione ADDR.',
-            style='List Bullet'
-        )
-        document.add_picture('./0inj/misc/meter/ctCHINT.png', width=Inches(4.75))
-        last_paragraph = document.paragraphs[-1]
-        last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        document.add_paragraph(
-            'Premere SET per configurare l\'indirizzo del meter.',
-            style='List Bullet'
-        )
-        document.add_paragraph(
-            'Se il meter in oggetto è il meter di scambio, lasciare “01” come indirizzo.\nSe il meter è un meter non di'
-            ' scambio, selezionare il numero successivo. In questa modo, l\'inverter assegnerà come potenze relative '
-            'alla produzione i dati inviati dal meter. Possono essere collegati massimo 3 meter non di scambio, '
-            'ovvero fino all\'indirizzo "04" (da "02 a "04").',
-            style='List Bullet'
-        )
-        document.add_paragraph(
-            'Premere ESC per confermare e ESC di nuovo per uscire dal menù.',
-            style='List Bullet'
-        )
-        document.add_picture('./0inj/misc/meter/AdressCHINT.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph('\nCablare il meter all\'inverter come riportato nella tabella sopra riportata.'
+                                   '\nPer configurare il meter DTSU è necessario fare le seguenti operazioni:')
+            document.add_paragraph(
+                'Premere SET sul meter. ', style='List Bullet'
+            )
+            document.add_paragraph(
+                'Quando comparirà la scritta CODE, premere SET una seconda volta. ', style='List Bullet'
+            )
+            document.add_paragraph(
+                'Scrivere 701 usando il tasto SET per spostare il cursore verso sinistra e “→” per aumentare di 1 la cifra'
+                ' selezionata. In caso di errore premere ESC e poi di nuovo SET per reimpostare il codice voluto.',
+                style='List Bullet'
+            )
+            document.add_picture('./0inj/misc/meter/PortaCHINT.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph(
+                'Confermare il numero premendo SET più volte fino all’impostazione ADDR.',
+                style='List Bullet'
+            )
+            document.add_picture('./0inj/misc/meter/ctCHINT.png', width=Inches(4.75))
+            last_paragraph = document.paragraphs[-1]
+            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            document.add_paragraph(
+                'Premere SET per configurare l\'indirizzo del meter.',
+                style='List Bullet'
+            )
+            document.add_paragraph(
+                'Controllare che l\'indirizzo sia “01” sennò aggiornarlo.',
+                style='List Bullet'
+            )
+
         last_paragraph = document.paragraphs[-1]
         last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
@@ -336,36 +370,44 @@ def documento_0inj(dict_all, serie, fase, sonda):
     elif sonda == 'TA':
         document.add_page_break()
         document.add_heading('Guida alla configurazione del TA', level=1)
-
-        document.add_paragraph('\nVerificare che la versione del Firmware dell\'inverter sia pari o superiore alla '
-                               '70008. Per verificare la versione, tramite il display dell\'inverter:\n')
-        document.add_paragraph('Premere il primo tasto a sinistra', style='List Bullet')
-        document.add_paragraph('Andare su "Info Sistema" e premere la freccia ->', style='List Bullet')
-        document.add_paragraph('Andare su "Info Inverter" e premere la freccia ->', style='List Bullet')
-        document.add_paragraph('Scorrere fino alla voce "Codice Servizio" e premere la freccia ->', style='List Bullet')
-        document.add_paragraph('Digitare la PSW 0715', style='List Bullet')
-        document.add_paragraph('\nSe la versione del Firmeare è inferiore alla 70008, aggiornare l\'inverter. '
-                               'Se la versione del Firmware dell\'inverter è pari o superiore alla '
-                               '70008:\n')
-        document.add_paragraph('Ruotare su OFF l\'interruttore sotto l\'inverter per la parte fotovoltaica',
-                               style='List Bullet')
-        document.add_paragraph('Tenere su ON le Batterie e lato AC', style='List Bullet')
-        document.add_paragraph('Sganciare tutti i carichi dell\'utenza', style='List Bullet')
-        document.add_paragraph('Sganciare tutte le sonde dalle fasi se già installate', style='List Bullet')
-        document.add_paragraph('Impostare l\'inverter in scarica forzata a 3kW', style='List Bullet')
-        document.add_paragraph('Avendo un sistematrifase perfettamente bilanciato, dall’inverter stesso, la potenza '
-                               'sarà suddivisa sulle fasi equamente', style='List Bullet')
-        document.add_paragraph('Premere dalla schermata iniziale dell\'inverter due volte la freccia in giu\'',
-                               style='List Bullet')
-        document.add_paragraph('Qui è possible visualizza il PF di tutte le fasi su N/A in quanto i CT non sono '
-                               'ancora agganciati alle fasi.', style='List Bullet')
-        document.add_paragraph('Installare un CT alla volta intorno alla singola fase controllando sull\'inverter il '
-                               'PF. il PF deve assumere valore simile a 1 se si è collegati alla fase giusta, in caso '
-                               'contrario collegarsi al un altra fase. Ripere questa manovra su tutti e 3 i CT fino ad '
-                               'ottenere tutti i CT con valori simili a 1 e dicitura EXPORT.', style='List Bullet')
-        document.add_paragraph('Riarmare l\'inverter partendo dallo switch fotovoltaico, le batterie e poi il generale '
-                               'lato AC.', style='List Bullet')
-        # document.add_paragraph('Impostare in maniera automatica le batterie come da manuale.', style='List Bullet')
+        if "HYD" in serie and "3" in fase:
+            document.add_paragraph('\nVerificare che la versione del Firmware dell\'inverter sia pari o superiore alla '
+                                   '70008. Per verificare la versione, tramite il display dell\'inverter:\n')
+            document.add_paragraph('Premere il primo tasto a sinistra', style='List Bullet')
+            document.add_paragraph('Andare su "Info Sistema" e premere la freccia ->', style='List Bullet')
+            document.add_paragraph('Andare su "Info Inverter" e premere la freccia ->', style='List Bullet')
+            document.add_paragraph('Scorrere fino alla voce "Codice Servizio" e premere la freccia ->', style='List Bullet')
+            document.add_paragraph('Digitare la PSW 0715', style='List Bullet')
+            document.add_paragraph('\nSe la versione del Firmeare è inferiore alla 70008, aggiornare l\'inverter. '
+                                   'Se la versione del Firmware dell\'inverter è pari o superiore alla '
+                                   '70008:\n')
+            document.add_paragraph('Ruotare su OFF l\'interruttore sotto l\'inverter per la parte fotovoltaica',
+                                   style='List Bullet')
+            document.add_paragraph('Tenere su ON le Batterie e lato AC', style='List Bullet')
+            document.add_paragraph('Sganciare tutti i carichi dell\'utenza', style='List Bullet')
+            document.add_paragraph('Sganciare tutte le sonde dalle fasi se già installate', style='List Bullet')
+            document.add_paragraph('Impostare l\'inverter in scarica forzata a 3kW', style='List Bullet')
+            document.add_paragraph('Avendo un sistema trifase perfettamente bilanciato, dall’inverter stesso, la potenza '
+                                   'sarà suddivisa sulle fasi equamente', style='List Bullet')
+            document.add_paragraph('Premere dalla schermata iniziale dell\'inverter due volte la freccia in giu\'',
+                                   style='List Bullet')
+            document.add_paragraph('Qui è possible visualizza il PF di tutte le fasi su N/A in quanto i CT non sono '
+                                   'ancora agganciati alle fasi.', style='List Bullet')
+            document.add_paragraph('Installare un CT alla volta intorno alla singola fase controllando sull\'inverter il '
+                                   'PF. il PF deve assumere valore simile a 1 se si è collegati alla fase giusta, in caso '
+                                   'contrario collegarsi al un altra fase. Ripere questa manovra su tutti e 3 i CT fino ad '
+                                   'ottenere tutti i CT con valori simili a 1 e dicitura EXPORT.', style='List Bullet')
+            document.add_paragraph('Riarmare l\'inverter partendo dallo switch fotovoltaico, le batterie e poi il generale '
+                                   'lato AC.', style='List Bullet')
+        if "HYD" not in serie and "1" in fase:
+            document.add_paragraph('\nFare le seguenti operazioni:\n')
+            document.add_paragraph('Ruotare su ON l\'interruttore sotto l\'inverter per la parte fotovoltaica con una produzione di almeno 500W',
+                                   style='List Bullet')
+            document.add_paragraph('Sganciare tutti i carichi dell\'utenza', style='List Bullet')
+            document.add_paragraph('Sganciare tutte le sonde dalle fasi se già installate', style='List Bullet')
+            document.add_paragraph(
+                'Installare il CT attorno alla singola fase controllando sull\'inverter il '
+                'segno della potenza che deve essere positivo.', style='List Bullet')
 
     document.add_page_break()
     if sonda != 'ENERCLICK':
@@ -386,7 +428,7 @@ def documento_0inj(dict_all, serie, fase, sonda):
             file = open('./0inj/misc/hyd 1ph/istruzioni.txt', 'r')
             lines = file.readlines()
             j = 0
-            for i in glob.glob('./0inj/misc/hyd 1ph/*.png'):
+            for i in glob.glob('./0inj/misc/hyd 1ph/*.jpg'):
                 document.add_picture(i, width=Inches(4.75))
                 last_paragraph = document.paragraphs[-1]
                 last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -399,7 +441,6 @@ def documento_0inj(dict_all, serie, fase, sonda):
                        'ZCS-3PH-25_50KTL-V3',
                        'ZCS-1PH-3000_6000TLM-V3'
                        ]:
-
             document.add_paragraph('\n')
             file = open('./0inj/misc/v3/istruzioni.txt', 'r')
             lines = file.readlines()
